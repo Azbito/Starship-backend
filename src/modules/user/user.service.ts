@@ -24,8 +24,26 @@ export class UserService {
       );
     }
 
+    const avatars = [
+      'astronaut_monkey',
+      'astronaut',
+      'chicken',
+      'cool_unicorn',
+      'duck',
+      'green_monster',
+      'monster',
+      'robot',
+      'rubber_duck',
+      'skull',
+      'soldier',
+      'unicorn',
+    ];
+
+    const avatar = avatars[Math.floor(Math.random() * avatars.length)];
+
     const data = {
       ...createUserDto,
+      avatar,
       password: await bcrypt.hash(createUserDto.password, 10),
     };
 
